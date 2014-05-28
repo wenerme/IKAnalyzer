@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>me.wener.extra</groupId>
-	<artifactId>IKAnalyzer</artifactId>
-	<version>2012_u6</version>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>me.wener.extra</groupId>
+    <artifactId>IKAnalyzer</artifactId>
+    <version>2012_u6</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.6</java.version>
         <lucene.version>3.4.0</lucene.version>
         <junit.version>4.11</junit.version>
     </properties>
 
-    <name>IK Lucene Analyzer</name>
-	<description>IK Lucene Analyzer</description>
-	<url>https://code.google.com/p/ik-analyzer/</url>
+    <name>IK Lucene Chinese Analyzer</name>
+    <description>这个是官方 ik 分词器的一个fork, 原项目地址为 https://code.google.com/p/ik-analyzer/</description>
+    <url>https://github.com/wenerme/IKAnalyzer</url>
 
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-	<scm>
-		<url>http://svn.apache.org/viewcvs.cgi/maven</url>
-		<connection>http://svn.apache.org/viewcvs.cgi/maven</connection>
-	</scm>
+    <scm>
+        <url>https://github.com/wenerme/IKAnalyzer</url>
+        <connection>https://github.com/wenerme/IKAnalyzer</connection>
+    </scm>
 
-	<developers>
-		<developer>
-			<id>linliangyi2007</id>
-			<url>http://linliangyi2007.iteye.com/blog/1703916</url>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <id>linliangyi2007</id>
+            <url>http://linliangyi2007.iteye.com/blog/1703916</url>
+        </developer>
+        <developer>
+            <id>wener</id>
+            <url>http://wener.me</url>
+        </developer>
+    </developers>
 
     <dependencies>
+
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
             <version>${lucene.version}</version>
+            <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.solr</groupId>
             <artifactId>solr-core</artifactId>
             <version>${lucene.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -53,14 +64,34 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-	
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-repository-plugin</artifactId>
+                <version>2.3.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
