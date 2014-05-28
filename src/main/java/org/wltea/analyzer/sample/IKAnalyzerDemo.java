@@ -91,8 +91,8 @@ public class IKAnalyzerDemo {
 			ireader = IndexReader.open(directory);
 			isearcher = new IndexSearcher(ireader);			
 			
-//			String keyword = "中文分词工具包";			
-			String keyword = "计算机算法";			
+//			String keyword = "中文分词工具包";
+			String keyword = "计算机算法";
 			//使用QueryParser查询分析器构造Query对象
 			QueryParser qp = new QueryParser(Version.LUCENE_34, fieldName, analyzer);
 			qp.setDefaultOperator(QueryParser.AND_OPERATOR);
