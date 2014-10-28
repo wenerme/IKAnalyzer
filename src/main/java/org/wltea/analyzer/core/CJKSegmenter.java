@@ -50,6 +50,7 @@ class CJKSegmenter implements ISegmenter {
 	/* (non-Javadoc)
 	 * @see org.wltea.analyzer.core.ISegmenter#analyze(org.wltea.analyzer.core.AnalyzeContext)
 	 */
+	/** {@inheritDoc} */
 	public void analyze(AnalyzeContext context) {
 		if(CharacterUtil.CHAR_USELESS != context.getCurrentCharType()){
 			
@@ -117,6 +118,9 @@ class CJKSegmenter implements ISegmenter {
 
 	/* (non-Javadoc)
 	 * @see org.wltea.analyzer.core.ISegmenter#reset()
+	 */
+	/**
+	 * <p>reset.</p>
 	 */
 	public void reset() {
 		//清空队列

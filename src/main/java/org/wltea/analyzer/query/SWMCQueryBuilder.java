@@ -40,16 +40,17 @@ import org.wltea.analyzer.core.Lexeme;
 /**
  * Single Word Multi Char Query Builder
  * IK分词算法专用
- * @author linliangyi
  *
+ * @author linliangyi
  */
 public class SWMCQueryBuilder {
 
 	/**
 	 * 生成SWMCQuery
-	 * @param fieldName
-	 * @param keywords
-	 * @param quickMode
+	 *
+	 * @param fieldName a {@link java.lang.String} object.
+	 * @param keywords a {@link java.lang.String} object.
+	 * @param quickMode a boolean.
 	 * @return Lucene Query
 	 */
 	public static Query create(String fieldName ,String keywords , boolean quickMode){

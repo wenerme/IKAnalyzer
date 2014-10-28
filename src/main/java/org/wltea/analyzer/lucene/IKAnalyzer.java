@@ -39,17 +39,27 @@ public final class IKAnalyzer extends Analyzer{
 	
 	private boolean useSmart;
 	
+	/**
+	 * <p>useSmart.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean useSmart() {
 		return useSmart;
 	}
 
+	/**
+	 * <p>Setter for the field <code>useSmart</code>.</p>
+	 *
+	 * @param useSmart a boolean.
+	 */
 	public void setUseSmart(boolean useSmart) {
 		this.useSmart = useSmart;
 	}
 
 	/**
 	 * IK分词器Lucene 3.5 Analyzer接口实现类
-	 * 
+	 *
 	 * 默认细粒度切分算法
 	 */
 	public IKAnalyzer(){
@@ -58,7 +68,7 @@ public final class IKAnalyzer extends Analyzer{
 	
 	/**
 	 * IK分词器Lucene Analyzer接口实现类
-	 * 
+	 *
 	 * @param useSmart 当为true时，分词器进行智能切分
 	 */
 	public IKAnalyzer(boolean useSmart){
@@ -66,11 +76,13 @@ public final class IKAnalyzer extends Analyzer{
 		this.useSmart = useSmart;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public TokenStream tokenStream(String fieldName, Reader reader) {
 		return new IKTokenizer(reader , this.useSmart());
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public TokenStream reusableTokenStream(String fieldName, Reader reader) throws IOException {
 		Tokenizer _IKTokenizer = (Tokenizer)getPreviousTokenStream();

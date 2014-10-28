@@ -35,15 +35,15 @@ import org.wltea.analyzer.lucene.IKTokenizer;
 /**
  * IK中文分词
  * Solr分词器工厂实现
- * 
- * 2012-3-6
  *
+ * 2012-3-6
  */
 public class IKTokenizerFactory extends BaseTokenizerFactory {
 	
 	
 	private boolean useSmart = false;
 	
+    /** {@inheritDoc} */
     @Override
     public void init(Map<String, String> params) {
         super.init(params);
@@ -54,6 +54,7 @@ public class IKTokenizerFactory extends BaseTokenizerFactory {
 	/* (non-Javadoc)
 	 * @see org.apache.solr.analysis.TokenizerFactory#create(java.io.Reader)
 	 */
+	/** {@inheritDoc} */
 	public Tokenizer create(Reader in) {
 		return new IKTokenizer(in , this.useSmart);
 	}

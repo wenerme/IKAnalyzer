@@ -38,13 +38,15 @@ import org.apache.lucene.search.TermRangeQuery;
 import org.apache.lucene.search.BooleanClause.Occur;
 
 /**
- * IK简易查询表达式解析 
+ * IK简易查询表达式解析
  * 结合SWMCQuery算法
- * 
- * 表达式例子 ：
- * (id='1231231' && title:'monkey') || (content:'你好吗'  || ulr='www.ik.com') - name:'helloword'
- * @author linliangyi
  *
+ * 表达式例子 ：
+ * <pre>
+ *     (id='1231231' &amp;&amp; title:'monkey') || (content:'你好吗'  || ulr='www.ik.com') - name:'helloword'
+ * </pre>
+ *
+ * @author linliangyi
  */
 public class IKQueryExpressionParser {
 	
@@ -58,9 +60,9 @@ public class IKQueryExpressionParser {
 	
 	/**
 	 * 解析查询表达式，生成Lucene Query对象
-	 * 
-	 * @param expression
-	 * @param quickMode 
+	 *
+	 * @param expression a {@link java.lang.String} object.
+	 * @param quickMode a boolean.
 	 * @return Lucene query
 	 */
 	public Query parseExp(String expression , boolean quickMode){
@@ -703,6 +705,11 @@ public class IKQueryExpressionParser {
 		}
 	}	
 
+	/**
+	 * <p>main.</p>
+	 *
+	 * @param args an array of {@link java.lang.String} objects.
+	 */
 	public static void main(String[] args){
 		IKQueryExpressionParser parser = new IKQueryExpressionParser();
 		//String ikQueryExp = "newsTitle:'的两款《魔兽世界》插件Bigfoot和月光宝盒'";

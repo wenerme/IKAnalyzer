@@ -77,6 +77,11 @@ class AnalyzeContext {
 	//分词器配置项
 	private Configuration cfg;
     
+    /**
+     * <p>Constructor for AnalyzeContext.</p>
+     *
+     * @param cfg a {@link org.wltea.analyzer.cfg.Configuration} object.
+     */
     public AnalyzeContext(Configuration cfg){
     	this.cfg = cfg;
     	this.segmentBuff = new char[BUFF_SIZE];

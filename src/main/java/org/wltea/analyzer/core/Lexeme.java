@@ -25,29 +25,39 @@
 package org.wltea.analyzer.core;
 
 /**
- * IK词元对象 
+ * IK词元对象
  */
 public class Lexeme implements Comparable<Lexeme>{
 	//lexemeType常量
 	//未知
+	/** Constant <code>TYPE_UNKNOWN=0</code> */
 	public static final int TYPE_UNKNOWN = 0;
 	//英文
+	/** Constant <code>TYPE_ENGLISH=1</code> */
 	public static final int TYPE_ENGLISH = 1;
 	//数字
+	/** Constant <code>TYPE_ARABIC=2</code> */
 	public static final int TYPE_ARABIC = 2;
 	//英文数字混合
+	/** Constant <code>TYPE_LETTER=3</code> */
 	public static final int TYPE_LETTER = 3;
 	//中文词元
+	/** Constant <code>TYPE_CNWORD=4</code> */
 	public static final int TYPE_CNWORD = 4;
 	//中文单字
+	/** Constant <code>TYPE_CNCHAR=64</code> */
 	public static final int TYPE_CNCHAR = 64;
 	//日韩文字
+	/** Constant <code>TYPE_OTHER_CJK=8</code> */
 	public static final int TYPE_OTHER_CJK = 8;
 	//中文数词
+	/** Constant <code>TYPE_CNUM=16</code> */
 	public static final int TYPE_CNUM = 16;
 	//中文量词
+	/** Constant <code>TYPE_COUNT=32</code> */
 	public static final int TYPE_COUNT = 32;
 	//中文数量词
+	/** Constant <code>TYPE_CQUAN=48</code> */
 	public static final int TYPE_CQUAN = 48;
 	
 	//词元的起始位移
@@ -62,6 +72,14 @@ public class Lexeme implements Comparable<Lexeme>{
     private int lexemeType;
     
     
+	/**
+	 * <p>Constructor for Lexeme.</p>
+	 *
+	 * @param offset a int.
+	 * @param begin a int.
+	 * @param length a int.
+	 * @param lexemeType a int.
+	 */
 	public Lexeme(int offset , int begin , int length , int lexemeType){
 		this.offset = offset;
 		this.begin = begin;
@@ -77,6 +95,7 @@ public class Lexeme implements Comparable<Lexeme>{
      * 起始位置偏移、起始位置、终止位置相同
      * @see java.lang.Object#equals(Object o)
      */
+	/** {@inheritDoc} */
 	public boolean equals(Object o){
 		if(o == null){
 			return false;
@@ -104,6 +123,11 @@ public class Lexeme implements Comparable<Lexeme>{
      * 词元哈希编码算法
      * @see java.lang.Object#hashCode()
      */
+    /**
+     * <p>hashCode.</p>
+     *
+     * @return a int.
+     */
     public int hashCode(){
     	int absBegin = getBeginPosition();
     	int absEnd = getEndPosition();
@@ -114,6 +138,12 @@ public class Lexeme implements Comparable<Lexeme>{
      * 词元在排序集合中的比较算法
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
+	/**
+	 * <p>compareTo.</p>
+	 *
+	 * @return a int.
+	 * @param other a {@link org.wltea.analyzer.core.Lexeme} object.
+	 */
 	public int compareTo(Lexeme other) {
 		//起始位置优先
         if(this.begin < other.getBegin()){
@@ -133,31 +163,53 @@ public class Lexeme implements Comparable<Lexeme>{
         }
 	}
 	
+	/**
+	 * <p>Getter for the field <code>offset</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getOffset() {
 		return offset;
 	}
 
+	/**
+	 * <p>Setter for the field <code>offset</code>.</p>
+	 *
+	 * @param offset a int.
+	 */
 	public void setOffset(int offset) {
 		this.offset = offset;
 	}
 
+	/**
+	 * <p>Getter for the field <code>begin</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getBegin() {
 		return begin;
 	}
 	/**
 	 * 获取词元在文本中的起始位置
+	 *
 	 * @return int
 	 */
 	public int getBeginPosition(){
 		return offset + begin;
 	}
 
+	/**
+	 * <p>Setter for the field <code>begin</code>.</p>
+	 *
+	 * @param begin a int.
+	 */
 	public void setBegin(int begin) {
 		this.begin = begin;
 	}
 
 	/**
 	 * 获取词元在文本中的结束位置
+	 *
 	 * @return int
 	 */
 	public int getEndPosition(){
@@ -166,12 +218,18 @@ public class Lexeme implements Comparable<Lexeme>{
 	
 	/**
 	 * 获取词元的字符长度
+	 *
 	 * @return int
 	 */
 	public int getLength(){
 		return this.length;
 	}	
 	
+	/**
+	 * <p>Setter for the field <code>length</code>.</p>
+	 *
+	 * @param length a int.
+	 */
 	public void setLength(int length) {
 		if(this.length < 0){
 			throw new IllegalArgumentException("length < 0");
@@ -181,6 +239,7 @@ public class Lexeme implements Comparable<Lexeme>{
 	
 	/**
 	 * 获取词元的文本内容
+	 *
 	 * @return String
 	 */
 	public String getLexemeText() {
@@ -190,6 +249,11 @@ public class Lexeme implements Comparable<Lexeme>{
 		return lexemeText;
 	}
 
+	/**
+	 * <p>Setter for the field <code>lexemeText</code>.</p>
+	 *
+	 * @param lexemeText a {@link java.lang.String} object.
+	 */
 	public void setLexemeText(String lexemeText) {
 		if(lexemeText == null){
 			this.lexemeText = "";
@@ -202,20 +266,27 @@ public class Lexeme implements Comparable<Lexeme>{
 
 	/**
 	 * 获取词元类型
+	 *
 	 * @return int
 	 */
 	public int getLexemeType() {
 		return lexemeType;
 	}
 
+	/**
+	 * <p>Setter for the field <code>lexemeType</code>.</p>
+	 *
+	 * @param lexemeType a int.
+	 */
 	public void setLexemeType(int lexemeType) {
 		this.lexemeType = lexemeType;
 	}
 	
 	/**
 	 * 合并两个相邻的词元
-	 * @param l
-	 * @param lexemeType
+	 *
+	 * @param l 实例
+	 * @param lexemeType 类型
 	 * @return boolean 词元是否成功合并
 	 */
 	public boolean append(Lexeme l , int lexemeType){
@@ -229,7 +300,9 @@ public class Lexeme implements Comparable<Lexeme>{
 	}
 	
 	/**
-	 * 
+	 * <p>toString.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
 	 */
 	public String toString(){
 		StringBuffer strbuf = new StringBuffer();

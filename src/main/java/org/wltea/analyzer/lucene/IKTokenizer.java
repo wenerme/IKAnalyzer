@@ -53,8 +53,9 @@ public final class IKTokenizer extends Tokenizer {
 	
 	/**
 	 * Lucene 3.5 Tokenizer适配器类构造函数
-	 * @param in
-	 * @param useSmart
+	 *
+	 * @param in a {@link java.io.Reader} object.
+	 * @param useSmart a boolean.
 	 */
 	public IKTokenizer(Reader in , boolean useSmart){
 	    super(in);
@@ -66,6 +67,7 @@ public final class IKTokenizer extends Tokenizer {
 	/* (non-Javadoc)
 	 * @see org.apache.lucene.analysis.TokenStream#incrementToken()
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public boolean incrementToken() throws IOException {
 		//清除所有的词元属性
@@ -93,11 +95,13 @@ public final class IKTokenizer extends Tokenizer {
 	 * (non-Javadoc)
 	 * @see org.apache.lucene.analysis.Tokenizer#reset(java.io.Reader)
 	 */
+	/** {@inheritDoc} */
 	public void reset(Reader input) throws IOException {
 		super.reset(input);
 		_IKImplement.reset(input);
 	}	
 	
+	/** {@inheritDoc} */
 	@Override
 	public final void end() {
 	    // set final offset 

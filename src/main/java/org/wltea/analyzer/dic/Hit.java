@@ -54,12 +54,14 @@ public class Hit {
 	
 	/**
 	 * 判断是否完全匹配
+	 *
+	 * @return a boolean.
 	 */
 	public boolean isMatch() {
 		return (this.hitState & MATCH) > 0;
 	}
 	/**
-	 * 
+	 * <p>setMatch.</p>
 	 */
 	public void setMatch() {
 		this.hitState = this.hitState | MATCH;
@@ -67,49 +69,83 @@ public class Hit {
 
 	/**
 	 * 判断是否是词的前缀
+	 *
+	 * @return a boolean.
 	 */
 	public boolean isPrefix() {
 		return (this.hitState & PREFIX) > 0;
 	}
 	/**
-	 * 
+	 * <p>setPrefix.</p>
 	 */
 	public void setPrefix() {
 		this.hitState = this.hitState | PREFIX;
 	}
 	/**
 	 * 判断是否是不匹配
+	 *
+	 * @return a boolean.
 	 */
 	public boolean isUnmatch() {
 		return this.hitState == UNMATCH ;
 	}
 	/**
-	 * 
+	 * <p>setUnmatch.</p>
 	 */
 	public void setUnmatch() {
 		this.hitState = UNMATCH;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>matchedDictSegment</code>.</p>
+	 *
+	 * @return a {@link org.wltea.analyzer.dic.DictSegment} object.
+	 */
 	public DictSegment getMatchedDictSegment() {
 		return matchedDictSegment;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>matchedDictSegment</code>.</p>
+	 *
+	 * @param matchedDictSegment a {@link org.wltea.analyzer.dic.DictSegment} object.
+	 */
 	public void setMatchedDictSegment(DictSegment matchedDictSegment) {
 		this.matchedDictSegment = matchedDictSegment;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>begin</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getBegin() {
 		return begin;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>begin</code>.</p>
+	 *
+	 * @param begin a int.
+	 */
 	public void setBegin(int begin) {
 		this.begin = begin;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>end</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getEnd() {
 		return end;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>end</code>.</p>
+	 *
+	 * @param end a int.
+	 */
 	public void setEnd(int end) {
 		this.end = end;
 	}	

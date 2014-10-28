@@ -74,6 +74,8 @@ class CN_QuantifierSegmenter implements ISegmenter{
 	}
 	
 	/**
+	 * {@inheritDoc}
+	 *
 	 * 分词
 	 */
 	public void analyze(AnalyzeContext context) {

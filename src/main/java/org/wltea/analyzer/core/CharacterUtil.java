@@ -31,14 +31,19 @@ package org.wltea.analyzer.core;
  */
 class CharacterUtil {
 	
+	/** Constant <code>CHAR_USELESS=0</code> */
 	public static final int CHAR_USELESS = 0;
 	
+	/** Constant <code>CHAR_ARABIC=0X00000001</code> */
 	public static final int CHAR_ARABIC = 0X00000001;
 	
+	/** Constant <code>CHAR_ENGLISH=0X00000002</code> */
 	public static final int CHAR_ENGLISH = 0X00000002;
 	
+	/** Constant <code>CHAR_CHINESE=0X00000004</code> */
 	public static final int CHAR_CHINESE = 0X00000004;
 	
+	/** Constant <code>CHAR_OTHER_CJK=0X00000008</code> */
 	public static final int CHAR_OTHER_CJK = 0X00000008;
 	
 	

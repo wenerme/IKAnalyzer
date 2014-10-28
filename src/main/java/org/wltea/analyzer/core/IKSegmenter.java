@@ -34,7 +34,6 @@ import org.wltea.analyzer.dic.Dictionary;
 
 /**
  * IK分词器主类
- *
  */
 public final class IKSegmenter {
 	
@@ -52,9 +51,10 @@ public final class IKSegmenter {
 
 	/**
 	 * IK分词器构造函数
-	 * @param input 
+	 *
+	 * @param input a {@link java.io.Reader} object.
 	 * @param useSmart 为true，使用智能分词策略
-	 * 
+	 *
 	 * 非智能分词：细粒度输出所有可能的切分结果
 	 * 智能分词： 合并数词和量词，对分词结果进行歧义判断
 	 */
@@ -67,9 +67,9 @@ public final class IKSegmenter {
 	
 	/**
 	 * IK分词器构造函数
-	 * @param input
+	 *
+	 * @param input a {@link java.io.Reader} object.
 	 * @param cfg 使用自定义的Configuration构造分词器
-	 * 
 	 */
 	public IKSegmenter(Reader input , Configuration cfg){
 		this.input = input;
@@ -108,8 +108,9 @@ public final class IKSegmenter {
 	
 	/**
 	 * 分词，获取下一个词元
+	 *
 	 * @return Lexeme 词元对象
-	 * @throws IOException
+	 * @throws java.io.IOException if any.
 	 */
 	public synchronized Lexeme next()throws IOException{
 		Lexeme l = null;
@@ -155,10 +156,11 @@ public final class IKSegmenter {
 		
 		return l;
 	}	
-    /**
-     * 重置分词器到初始状态
-     * @param input
-     */
+	/**
+	 * 重置分词器到初始状态
+	 *
+	 * @param input a {@link java.io.Reader} object.
+	 */
 	public synchronized void reset(Reader input) {
 		this.input = input;
 		context.reset();

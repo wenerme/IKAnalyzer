@@ -51,11 +51,15 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 /**
  * IKAnalyzer 示例
  * 2012-3-2
- * 
- * 以下是结合Lucene3.4 API的写法
  *
+ * 以下是结合Lucene3.4 API的写法
  */
 public class IKAnalyzerDemo {
+	/**
+	 * <p>main.</p>
+	 *
+	 * @param args an array of {@link java.lang.String} objects.
+	 */
 	public static void main(String[] args){
 		//Lucene Document的域名
 		String fieldName = "text";

@@ -87,6 +87,7 @@ class LetterSegmenter implements ISegmenter {
 	/* (non-Javadoc)
 	 * @see org.wltea.analyzer.core.ISegmenter#analyze(org.wltea.analyzer.core.AnalyzeContext)
 	 */
+	/** {@inheritDoc} */
 	public void analyze(AnalyzeContext context) {
 		boolean bufferLockFlag = false;
 		//处理英文字母
@@ -107,6 +108,9 @@ class LetterSegmenter implements ISegmenter {
 	
 	/* (non-Javadoc)
 	 * @see org.wltea.analyzer.core.ISegmenter#reset()
+	 */
+	/**
+	 * <p>reset.</p>
 	 */
 	public void reset() {
 		this.start = -1;
